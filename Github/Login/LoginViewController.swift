@@ -8,30 +8,29 @@
 
 import UIKit
 
-class LoginViewController : UIViewController {
+class LoginViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet var usernameField : UITextField
     @IBOutlet var passwordField : UITextField
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordField.delegate = self
     }
     
     @IBAction func selectSignIn(sender : AnyObject) {
+        self.login()
+    }
+    
+    func login() {
         println(usernameField.text)
         println(passwordField.text)
         println("we is going to login!!")
-        
+        var login = Login()
     }
     
-    /*
-    // #pragma mark - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.login()
+        self.performSegueWithIdentifier("shuffleSlide", sender: self)
+        return true
     }
-    */
-
 }
