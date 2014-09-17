@@ -16,6 +16,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6BFD904B19C9299B00DD99B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD901619C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
+		6BFD904D19C9299B00DD99B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
+			remoteInfo = SwiftHTTPTests;
+		};
+		6BFD905119C92A1600DD99B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BFD901519C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
 		6BFEB0D1193EBEDE00612B8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BFEB0BB193EBEDE00612B8B /* Project object */;
@@ -27,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		6BEE5F10193ECB1200E52C59 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Login/Login.swift; sourceTree = "<group>"; };
+		6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = ../SwiftHTTP/SwiftHTTP.xcodeproj; sourceTree = "<group>"; };
 		6BFEB0C3193EBEDE00612B8B /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFEB0C7193EBEDE00612B8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFEB0C8193EBEDE00612B8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,12 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BFD904719C9299B00DD99B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BFD904C19C9299B00DD99B6 /* SwiftHTTP.framework */,
+				6BFD904E19C9299B00DD99B6 /* SwiftHTTPTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6BFEB0BA193EBEDE00612B8B = {
 			isa = PBXGroup;
 			children = (
 				6BFEB0C5193EBEDE00612B8B /* Github */,
 				6BFEB0D3193EBEDE00612B8B /* GithubTests */,
 				6BFEB0C4193EBEDE00612B8B /* Products */,
+				6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +166,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6BFD905219C92A1600DD99B6 /* PBXTargetDependency */,
 			);
 			name = Github;
 			productName = Github;
@@ -186,6 +219,12 @@
 			mainGroup = 6BFEB0BA193EBEDE00612B8B;
 			productRefGroup = 6BFEB0C4193EBEDE00612B8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6BFD904719C9299B00DD99B6 /* Products */;
+					ProjectRef = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6BFEB0C2193EBEDE00612B8B /* Github */,
@@ -193,6 +232,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6BFD904C19C9299B00DD99B6 /* SwiftHTTP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftHTTP.framework;
+			remoteRef = 6BFD904B19C9299B00DD99B6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BFD904E19C9299B00DD99B6 /* SwiftHTTPTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftHTTPTests.xctest;
+			remoteRef = 6BFD904D19C9299B00DD99B6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6BFEB0C1193EBEDE00612B8B /* Resources */ = {
@@ -235,6 +291,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6BFD905219C92A1600DD99B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftHTTP;
+			targetProxy = 6BFD905119C92A1600DD99B6 /* PBXContainerItemProxy */;
+		};
 		6BFEB0D2193EBEDE00612B8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6BFEB0C2193EBEDE00612B8B /* Github */;

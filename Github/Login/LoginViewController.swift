@@ -9,8 +9,12 @@
 import UIKit
 
 class LoginViewController : UIViewController, UITextFieldDelegate {
-    @IBOutlet var usernameField : UITextField
-    @IBOutlet var passwordField : UITextField
+    @IBOutlet var usernameField : UITextField!
+    @IBOutlet var passwordField : UITextField!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,18 +22,11 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func selectSignIn(sender : AnyObject) {
-        self.login()
-    }
-    
-    func login() {
-        println(usernameField.text)
-        println(passwordField.text)
-        println("we is going to login!!")
-        var login = Login()
+        Login(username: usernameField.text, password: passwordField.text)
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        self.login()
+        Login(username: usernameField.text, password: passwordField.text)
         self.performSegueWithIdentifier("shuffleSlide", sender: self)
         return true
     }

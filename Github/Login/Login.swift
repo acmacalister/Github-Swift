@@ -6,21 +6,34 @@
 //  Copyright (c) 2014 Vluxe. All rights reserved.
 //
 
-import UIKit
+import SwiftHTTP
 
-class Login: NSObject {
-    var session = NSURLSession.sharedSession()
-    var str : NSString!
+struct Login {
+    let clientId = "your id"
+    let clientSecret = "your secret"
     
-    init() {
-        println("do stuff")
+    init(username: String, password: String) {
+        let optData = "\(username):\(password)".dataUsingEncoding(NSUTF8StringEncoding)
+        if let data = optData {
+            let basicAuth = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+            auth(basicAuth)
+        }
     }
     
-    func oauthRequest() {
-        var task = session.dataTaskWithURL(NSURL.URLWithString("http://vluxe.io"), completionHandler: {(data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-            self.str = NSString(data: data, encoding: NSUTF8StringEncoding)
+    func auth(encoded: String) {
+        println(encoded)
+        var request = HTTPTask()
+        request.requestSerializer = JSONRequestSerializer()
+        request.responseSerializer = JSONResponseSerializer()
+        request.requestSerializer.headers = ["Authorization": "Basic \(encoded)"]
+        let params = ["scopes":"repo", "note": "dev", "client_id": clientId, "client_secret": clientSecret]
+        request.POST("https://api.github.com/authorizations", parameters: params, success: {(response: HTTPResponse) -> Void in
+            if (response.responseObject != nil) {
+                let token = response.responseObject!["token"] // not safe.
+                println("token: \(token)")
+            }
+            },failure: {(error: NSError) -> Void in
+                println(error)
         })
-        
-        task.resume()
     }
 }
