@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        // Override point for customization after application launch.
+        if Constant.sharedManager.token != nil {
+            let storyboard = UIStoryboard(name: "Storyboard", bundle:nil)
+            let viewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("tabBarVC")
+            
+            window!.rootViewController = (viewController as UITabBarController)
+            window!.makeKeyAndVisible()
+        }
         return true
     }
     

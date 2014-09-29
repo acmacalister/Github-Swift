@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3E7A2419D8ECB2006071F7 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E7A2319D8ECB2006071F7 /* ReposViewController.swift */; };
+		6B3E7A2619D8EEE2006071F7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E7A2519D8EEE2006071F7 /* Constant.swift */; };
+		6B3E7A2819D91CD9006071F7 /* Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E7A2719D91CD9006071F7 /* Repos.swift */; };
 		6BEE5F11193ECB1200E52C59 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEE5F10193ECB1200E52C59 /* Login.swift */; };
 		6BFEB0C9193EBEDE00612B8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFEB0C8193EBEDE00612B8B /* AppDelegate.swift */; };
 		6BFEB0CB193EBEDE00612B8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BFEB0CA193EBEDE00612B8B /* Images.xcassets */; };
@@ -16,6 +19,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6B3E7A1919D8DE9F006071F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B3E79B719D355CF006071F7;
+			remoteInfo = JSONJoy;
+		};
+		6B3E7A1B19D8DE9F006071F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B3E79C219D355CF006071F7;
+			remoteInfo = JSONJoyTests;
+		};
+		6B3E7A1E19D8DEB5006071F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B3E79B619D355CF006071F7;
+			remoteInfo = JSONJoy;
+		};
 		6BFD904B19C9299B00DD99B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
@@ -47,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONJoy.xcodeproj; path = "../JSONJoy-Swift/JSONJoy.xcodeproj"; sourceTree = "<group>"; };
+		6B3E7A2319D8ECB2006071F7 /* ReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReposViewController.swift; path = Repos/ReposViewController.swift; sourceTree = "<group>"; };
+		6B3E7A2519D8EEE2006071F7 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6B3E7A2719D91CD9006071F7 /* Repos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repos.swift; path = Repos/Repos.swift; sourceTree = "<group>"; };
 		6BEE5F10193ECB1200E52C59 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Login/Login.swift; sourceTree = "<group>"; };
 		6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = ../SwiftHTTP/SwiftHTTP.xcodeproj; sourceTree = "<group>"; };
 		6BFEB0C3193EBEDE00612B8B /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +106,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B3E7A1519D8DE9F006071F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B3E7A1A19D8DE9F006071F7 /* JSONJoy.framework */,
+				6B3E7A1C19D8DE9F006071F7 /* JSONJoyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B3E7A2219D8EC70006071F7 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				6B3E7A2319D8ECB2006071F7 /* ReposViewController.swift */,
+				6B3E7A2719D91CD9006071F7 /* Repos.swift */,
+			);
+			name = Repos;
+			sourceTree = "<group>";
+		};
 		6BFD904719C9299B00DD99B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +140,7 @@
 				6BFEB0D3193EBEDE00612B8B /* GithubTests */,
 				6BFEB0C4193EBEDE00612B8B /* Products */,
 				6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */,
+				6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,11 +156,13 @@
 		6BFEB0C5193EBEDE00612B8B /* Github */ = {
 			isa = PBXGroup;
 			children = (
+				6B3E7A2219D8EC70006071F7 /* Repos */,
 				6BFEB0E4193EC12800612B8B /* Login */,
 				6BFEB0C8193EBEDE00612B8B /* AppDelegate.swift */,
 				6BFEB0CA193EBEDE00612B8B /* Images.xcassets */,
 				6BFEB0C6193EBEDE00612B8B /* Supporting Files */,
 				6BFEB0E0193EBF4300612B8B /* Storyboard.storyboard */,
+				6B3E7A2519D8EEE2006071F7 /* Constant.swift */,
 			);
 			path = Github;
 			sourceTree = "<group>";
@@ -166,6 +215,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6B3E7A1F19D8DEB5006071F7 /* PBXTargetDependency */,
 				6BFD905219C92A1600DD99B6 /* PBXTargetDependency */,
 			);
 			name = Github;
@@ -221,6 +271,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 6B3E7A1519D8DE9F006071F7 /* Products */;
+					ProjectRef = 6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */;
+				},
+				{
 					ProductGroup = 6BFD904719C9299B00DD99B6 /* Products */;
 					ProjectRef = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
 				},
@@ -234,6 +288,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6B3E7A1A19D8DE9F006071F7 /* JSONJoy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSONJoy.framework;
+			remoteRef = 6B3E7A1919D8DE9F006071F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B3E7A1C19D8DE9F006071F7 /* JSONJoyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JSONJoyTests.xctest;
+			remoteRef = 6B3E7A1B19D8DE9F006071F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6BFD904C19C9299B00DD99B6 /* SwiftHTTP.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -274,7 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3E7A2419D8ECB2006071F7 /* ReposViewController.swift in Sources */,
 				6BEE5F11193ECB1200E52C59 /* Login.swift in Sources */,
+				6B3E7A2619D8EEE2006071F7 /* Constant.swift in Sources */,
+				6B3E7A2819D91CD9006071F7 /* Repos.swift in Sources */,
 				6BFEB0E3193EC12200612B8B /* LoginViewController.swift in Sources */,
 				6BFEB0C9193EBEDE00612B8B /* AppDelegate.swift in Sources */,
 			);
@@ -291,6 +362,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6B3E7A1F19D8DEB5006071F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSONJoy;
+			targetProxy = 6B3E7A1E19D8DEB5006071F7 /* PBXContainerItemProxy */;
+		};
 		6BFD905219C92A1600DD99B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftHTTP;

@@ -7,10 +7,47 @@
 //
 
 import SwiftHTTP
+import JSONJoy
+
+struct App: JSONJoy {
+    var url: String?
+    var name: String?
+    var clientId: String?
+    
+    init(_ decoder: JSONDecoder) {
+        url = decoder["url"].string
+        name = decoder["name"].string
+        clientId = decoder["client_id"].string
+    }
+}
+
+struct Authorization: JSONJoy {
+    var id: Int?
+    var url: String?
+    //var scopes: Array<String>?
+    var app: App?
+    var token: String?
+    var note: String?
+    var noteUrl: String?
+    //var updatedAt: String?
+    //var createdAt: String?
+    
+    init(_ decoder: JSONDecoder) {
+        id = decoder["id"].integer
+        url = decoder["url"].string
+        //decoder["scopes"].array(&scopes)
+        app = App(decoder["app"])
+        token = decoder["token"].string
+        note = decoder["note"].string
+        noteUrl = decoder["note_url"].string
+        //updatedAt = decoder["updated_at"].string
+        //createdAt = decoder["created_at"].string
+    }
+}
 
 struct Login {
-    let clientId = "your id"
-    let clientSecret = "your secret"
+    let clientId = "80b1798b0b410dd723ee"
+    let clientSecret = "58b7abd90008cb39626802d4bb9444c53d9d79ad"
     
     init(username: String, password: String) {
         let optData = "\(username):\(password)".dataUsingEncoding(NSUTF8StringEncoding)
@@ -21,16 +58,22 @@ struct Login {
     }
     
     func auth(encoded: String) {
-        println(encoded)
         var request = HTTPTask()
         request.requestSerializer = JSONRequestSerializer()
         request.responseSerializer = JSONResponseSerializer()
         request.requestSerializer.headers = ["Authorization": "Basic \(encoded)"]
         let params = ["scopes":"repo", "note": "dev", "client_id": clientId, "client_secret": clientSecret]
         request.POST("https://api.github.com/authorizations", parameters: params, success: {(response: HTTPResponse) -> Void in
-            if (response.responseObject != nil) {
-                let token = response.responseObject!["token"] // not safe.
-                println("token: \(token)")
+            if let obj: AnyObject = response.responseObject {
+                let auth = Authorization(JSONDecoder(obj))
+                if let token = auth.token {
+                    println("token: \(token)")
+                    let defaults = NSUserDefaults()
+                    defaults.setObject(token, forKey: "token")
+                    defaults.synchronize()
+                } else {
+                    println("Failed to get token.")
+                }
             }
             },failure: {(error: NSError) -> Void in
                 println(error)
