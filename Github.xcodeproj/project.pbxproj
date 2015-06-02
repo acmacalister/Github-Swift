@@ -16,6 +16,7 @@
 		6BFEB0D7193EBEDE00612B8B /* GithubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFEB0D6193EBEDE00612B8B /* GithubTests.swift */; };
 		6BFEB0E1193EBF4300612B8B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BFEB0E0193EBF4300612B8B /* Storyboard.storyboard */; };
 		6BFEB0E3193EC12200612B8B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFEB0E2193EC12200612B8B /* LoginViewController.swift */; };
+		D9CE587E1B1D20A100D9DAF3 /* LoginAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE587D1B1D20A100D9DAF3 /* LoginAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,34 @@
 			remoteGlobalIDString = 6BFEB0C2193EBEDE00612B8B;
 			remoteInfo = Github;
 		};
+		D9CE58721B1D202D00D9DAF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D958022E19E6ED8E003C8218;
+			remoteInfo = JSONJoyOSX;
+		};
+		D9CE58741B1D202D00D9DAF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B3E7A1419D8DE9F006071F7 /* JSONJoy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D958023819E6ED8E003C8218;
+			remoteInfo = JSONJoyOSXTests;
+		};
+		D9CE58791B1D202D00D9DAF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D958025919E6EEEB003C8218;
+			remoteInfo = SwiftHTTPOSX;
+		};
+		D9CE587B1B1D202D00D9DAF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BFD904619C9299B00DD99B6 /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D958026319E6EEEB003C8218;
+			remoteInfo = SwiftHTTPOSXTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +115,7 @@
 		6BFEB0D6193EBEDE00612B8B /* GithubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTests.swift; sourceTree = "<group>"; };
 		6BFEB0E0193EBF4300612B8B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6BFEB0E2193EC12200612B8B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
+		D9CE587D1B1D20A100D9DAF3 /* LoginAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +141,8 @@
 			children = (
 				6B3E7A1A19D8DE9F006071F7 /* JSONJoy.framework */,
 				6B3E7A1C19D8DE9F006071F7 /* JSONJoyTests.xctest */,
+				D9CE58731B1D202D00D9DAF3 /* JSONJoy.framework */,
+				D9CE58751B1D202D00D9DAF3 /* JSONJoyOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +161,8 @@
 			children = (
 				6BFD904C19C9299B00DD99B6 /* SwiftHTTP.framework */,
 				6BFD904E19C9299B00DD99B6 /* SwiftHTTPTests.xctest */,
+				D9CE587A1B1D202D00D9DAF3 /* SwiftHTTP.framework */,
+				D9CE587C1B1D202D00D9DAF3 /* SwiftHTTPOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +190,7 @@
 		6BFEB0C5193EBEDE00612B8B /* Github */ = {
 			isa = PBXGroup;
 			children = (
+				D9CE586E1B1D202D00D9DAF3 /* Shared */,
 				6B3E7A2219D8EC70006071F7 /* Repos */,
 				6BFEB0E4193EC12800612B8B /* Login */,
 				6BFEB0C8193EBEDE00612B8B /* AppDelegate.swift */,
@@ -195,10 +230,18 @@
 		6BFEB0E4193EC12800612B8B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6BFEB0E2193EC12200612B8B /* LoginViewController.swift */,
 				6BEE5F10193ECB1200E52C59 /* Login.swift */,
+				6BFEB0E2193EC12200612B8B /* LoginViewController.swift */,
+				D9CE587D1B1D20A100D9DAF3 /* LoginAnimator.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		D9CE586E1B1D202D00D9DAF3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +359,34 @@
 			remoteRef = 6BFD904D19C9299B00DD99B6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D9CE58731B1D202D00D9DAF3 /* JSONJoy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSONJoy.framework;
+			remoteRef = D9CE58721B1D202D00D9DAF3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9CE58751B1D202D00D9DAF3 /* JSONJoyOSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JSONJoyOSXTests.xctest;
+			remoteRef = D9CE58741B1D202D00D9DAF3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9CE587A1B1D202D00D9DAF3 /* SwiftHTTP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftHTTP.framework;
+			remoteRef = D9CE58791B1D202D00D9DAF3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9CE587C1B1D202D00D9DAF3 /* SwiftHTTPOSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftHTTPOSXTests.xctest;
+			remoteRef = D9CE587B1B1D202D00D9DAF3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -347,6 +418,7 @@
 				6B3E7A2619D8EEE2006071F7 /* Constant.swift in Sources */,
 				6B3E7A2819D91CD9006071F7 /* Repos.swift in Sources */,
 				6BFEB0E3193EC12200612B8B /* LoginViewController.swift in Sources */,
+				D9CE587E1B1D20A100D9DAF3 /* LoginAnimator.swift in Sources */,
 				6BFEB0C9193EBEDE00612B8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

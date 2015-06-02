@@ -14,12 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         if Constant.sharedManager.token != nil {
             let storyboard = UIStoryboard(name: "Storyboard", bundle:nil)
             let viewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("tabBarVC")
             
-            window!.rootViewController = (viewController as UITabBarController)
+            window!.rootViewController = (viewController as! UITabBarController)
             window!.makeKeyAndVisible()
         }
         return true

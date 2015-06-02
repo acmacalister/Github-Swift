@@ -48,22 +48,30 @@ struct Authorization: JSONJoy {
 struct Login {
     let clientId = "80b1798b0b410dd723ee"
     let clientSecret = "58b7abd90008cb39626802d4bb9444c53d9d79ad"
+    var basicAuth = ""
     
     init(username: String, password: String) {
         let optData = "\(username):\(password)".dataUsingEncoding(NSUTF8StringEncoding)
         if let data = optData {
-            let basicAuth = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-            auth(basicAuth)
+            basicAuth = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         }
     }
     
-    func auth(encoded: String) {
+    func auth(completionHandler: (Bool -> Void)) -> Void {
         var request = HTTPTask()
         request.requestSerializer = JSONRequestSerializer()
         request.responseSerializer = JSONResponseSerializer()
-        request.requestSerializer.headers = ["Authorization": "Basic \(encoded)"]
+        request.requestSerializer.headers = ["Authorization": "Basic \(basicAuth)"]
         let params = ["scopes":"repo", "note": "dev", "client_id": clientId, "client_secret": clientSecret]
-        request.POST("https://api.github.com/authorizations", parameters: params, success: {(response: HTTPResponse) -> Void in
+        request.POST("https://api.github.com/authorizations", parameters: params, completionHandler: {(response: HTTPResponse) -> Void in
+            if let err = response.error {
+                println("error: \(err.localizedDescription)")
+                dispatch_async(dispatch_get_main_queue(),{
+                    completionHandler(false)
+                })
+                
+                return //also notify app of failure as needed
+            }
             if let obj: AnyObject = response.responseObject {
                 let auth = Authorization(JSONDecoder(obj))
                 if let token = auth.token {
@@ -71,12 +79,15 @@ struct Login {
                     let defaults = NSUserDefaults()
                     defaults.setObject(token, forKey: "token")
                     defaults.synchronize()
+                    dispatch_async(dispatch_get_main_queue(),{
+                        completionHandler(true)
+                    })
                 } else {
-                    println("Failed to get token.")
+                    dispatch_async(dispatch_get_main_queue(),{
+                        completionHandler(false)
+                    })
                 }
             }
-            },failure: {(error: NSError) -> Void in
-                println(error)
         })
     }
 }

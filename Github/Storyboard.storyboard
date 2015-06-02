@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="13K-TD-zFV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="13K-TD-zFV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -53,7 +53,6 @@
                                 </state>
                                 <connections>
                                     <action selector="selectSignIn:" destination="13K-TD-zFV" eventType="touchUpInside" id="B6L-Qu-vy7"/>
-                                    <segue destination="OcH-MR-51k" kind="show" identifier="shuffleSlide" id="9V4-Az-42u"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -75,11 +74,12 @@
                     <connections>
                         <outlet property="passwordField" destination="g9F-E2-woX" id="OwH-JG-qft"/>
                         <outlet property="usernameField" destination="hYx-ce-fcK" id="Mrt-oi-ruF"/>
+                        <segue destination="OcH-MR-51k" kind="custom" identifier="shuffleSlide" id="I9c-55-25p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5y-Uy-tpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="345" y="321.97183098591546"/>
+            <point key="canvasLocation" x="223" y="310"/>
         </scene>
         <!--tableView-->
         <scene sceneID="uMN-ma-fOA">
