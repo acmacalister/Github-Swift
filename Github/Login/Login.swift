@@ -58,24 +58,23 @@ struct Login {
     }
     
     func auth(completionHandler: (Bool -> Void)) -> Void {
-        var request = HTTPTask()
-        request.requestSerializer = JSONRequestSerializer()
-        request.responseSerializer = JSONResponseSerializer()
-        request.requestSerializer.headers = ["Authorization": "Basic \(basicAuth)"]
+        
         let params = ["scopes":"repo", "note": "dev", "client_id": clientId, "client_secret": clientSecret]
-        request.POST("https://api.github.com/authorizations", parameters: params, completionHandler: {(response: HTTPResponse) -> Void in
-            if let err = response.error {
-                println("error: \(err.localizedDescription)")
-                dispatch_async(dispatch_get_main_queue(),{
-                    completionHandler(false)
-                })
-                
-                return //also notify app of failure as needed
-            }
-            if let obj: AnyObject = response.responseObject {
-                let auth = Authorization(JSONDecoder(obj))
+        
+        do {
+            let opt = try HTTP.POST("https://api.github.com/authorizations", parameters: params, headers: ["Authorization": "Basic \(basicAuth)"] ,requestSerializer: JSONParameterSerializer())
+            opt.start { response in
+                if let error = response.error {
+                    print("got an error: \(error)")
+                    dispatch_async(dispatch_get_main_queue(),{
+                        completionHandler(false)
+                    })
+                    
+                    return //also notify app of failure as needed
+                }
+                let auth = Authorization(JSONDecoder(response.data))
                 if let token = auth.token {
-                    println("token: \(token)")
+                    print("token: \(token)")
                     let defaults = NSUserDefaults()
                     defaults.setObject(token, forKey: "token")
                     defaults.synchronize()
@@ -87,7 +86,13 @@ struct Login {
                         completionHandler(false)
                     })
                 }
+                
             }
-        })
+        } catch let error {
+            dispatch_async(dispatch_get_main_queue(),{
+                completionHandler(false)
+            })
+            print("got an error creating the request: \(error)")
+        }
     }
 }

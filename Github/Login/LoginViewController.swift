@@ -13,7 +13,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordField : UITextField!
     let animator = LoginAnimator()
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
         
@@ -32,7 +32,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     }
     
     func login() {
-        let login = Login(username: usernameField.text, password: passwordField.text)
+        let login = Login(username: usernameField.text!, password: passwordField.text!)
         login.auth({ (status: Bool) in
             if status {
                 self.performSegueWithIdentifier("shuffleSlide", sender: self)
@@ -46,8 +46,8 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
-        let repoVC = segue.destinationViewController as! UIViewController
-        repoVC.transitioningDelegate = animator
-        repoVC.modalPresentationStyle = .Custom
+        //let repoVC = segue.destinationViewController
+        //repoVC.transitioningDelegate = animator
+        //repoVC.modalPresentationStyle = .Custom
     }
 }
