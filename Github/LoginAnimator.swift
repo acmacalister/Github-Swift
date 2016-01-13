@@ -9,14 +9,14 @@
 import UIKit
 
 class LoginAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 2.5
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        //let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let fromView = fromViewController.view //transitionContext.viewForKey(UITransitionContextFromViewKey)!
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         let animationDuration = self.transitionDuration(transitionContext) / 5
@@ -26,8 +26,8 @@ class LoginAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewCont
         fromView.center = point
         let rotationTransform = CGAffineTransformIdentity
         
-        container.addSubview(toView)
-        container.addSubview(fromView)
+        container!.addSubview(toView)
+        container!.addSubview(fromView)
         
         UIView.animateWithDuration(animationDuration, animations: { () -> Void in
             fromView.transform = CGAffineTransformRotate(rotationTransform, self.degreesToRadians(80))
